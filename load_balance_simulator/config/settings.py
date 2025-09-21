@@ -24,4 +24,9 @@ REQUEST_CONFIG = {
     }
 }
 
+SERVER_CONFIG = {
+    "default_capacity": 1,
+    "default_cpu_power": 1.0
+}
+
 
