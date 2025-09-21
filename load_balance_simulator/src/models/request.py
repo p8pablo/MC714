@@ -38,30 +38,30 @@ class Request:
         )
         
     def get_response_time(self) -> Optional[float]:
-        """Tempo total de resposta (fim - chegada)"""
+        # Tempo total de resposta (fim - chegada
         if self.completion_time is not None:
             return self.completion_time - self.arrival_time
         return None
     
     def get_waiting_time(self) -> Optional[float]:
-        """Tempo de espera na fila (início processamento - chegada)"""
+        # Tempo de espera na fila (início processamento - chegada
         if self.start_processing_time is not None:
             return self.start_processing_time - self.arrival_time
         return None
     
     def get_actual_processing_time(self) -> Optional[float]:
-        """Calcula o tempo real de processamento"""
+        # Calcula o tempo real de processamento
         if (self.start_processing_time is not None and 
             self.completion_time is not None):
             return self.completion_time - self.start_processing_time
         return None
     
     def is_completed(self) -> bool:
-        """Verifica se a requisição foi completada"""
+        # Verifica se a requisição foi completada
         return self.completion_time is not None
     
     def __str__(self) -> str:
-        """Log da requisição"""
+        # Log da requisição
         status = "Completed" if self.is_completed() else "Pending"
         return f"Request({self.id}, {self.type.value}, {status})"
     
