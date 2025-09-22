@@ -29,4 +29,3 @@ SERVER_CONFIG = {
     "default_cpu_power": 1.0
 }
 
-
