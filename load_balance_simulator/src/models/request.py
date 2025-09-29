@@ -50,6 +50,12 @@ class Request:
         return None
     
     def get_actual_processing_time(self) -> Optional[float]:
+        # Tempo real de processamento (fim - início processamento)
+        if self.completion_time is not None and self.start_processing_time is not None:
+            return self.completion_time - self.start_processing_time
+        return None
+    
+    def get_actual_processing_time(self) -> Optional[float]:
         # Calcula o tempo real de processamento
         if (self.start_processing_time is not None and 
             self.completion_time is not None):
